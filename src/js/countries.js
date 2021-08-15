@@ -24,7 +24,7 @@ function handleInput(e) {
         } else if (data.length === 1) {
             buildListMarkup(data, countriesTpl);
         } else if (data.length <= 10) {
-            buildListMarkup(data, manyCountries);
+            return manyCountries;
         }
     })
         .catch(Error => {
