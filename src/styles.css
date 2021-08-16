@@ -9,10 +9,9 @@ html {
 }
 
 body {
-  /*
-   * CSS image reference example.
-   */
-  background-image: url('./images/bg-pattern.png');
+  /* CSS image reference example. */
+
+  background-image: grey;
 }
 .form-inline {
   text-align: center;

@@ -18,23 +18,25 @@ function handleInput(e) {
     clearCountriesList();
     const searchQuery = e.target.value;
 
-    fetchCountries.fetchArticles(searchQuery).then(data => {
-        if (data.length > 10) {
-            alert({
-                text: " Too many matches found. Please enter a more specific query!"
-            });
-        } else if (data.length === 1) {
-            buildListMarkup(data, countriesTpl);
-        } else if (data.length <= 10) {
-            buildListMarkup(data, manyCountries);
-        }
-    })
+    fetchCountries(searchQuery)
+        .then(data => {
+            console.log(data);
+            if (data.length > 10) {
+                alert({
+                    text: " Too many matches found. Please enter a more specific query!"
+                });
+            } else if (data.length === 1) {
+                buildListMarkup(data, countriesTpl);
+            } else if (data.length <= 10) {
+                buildListMarkup(data, manyCountries);
+            }
+        })
         .catch(Error => {
             alert({
                 text: "You must enter query parameters!"
             });
-            console.log(Error)
-        })
+            console.log(Error);
+        });
 
 }
 function buildListMarkup(countries, template) {
