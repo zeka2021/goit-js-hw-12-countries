@@ -1,6 +1,7 @@
 import fetchCountries from './fetch-Countries';
 import refs from './refs';
 import countriesTpl from '../templates/templateCountry.hbs';
+import manyCountries from '../templates/templateMoreCountry.hbs'
 import { alert } from '@pnotify/core';
 
 
@@ -24,7 +25,7 @@ function handleInput(e) {
         } else if (data.length === 1) {
             buildListMarkup(data, countriesTpl);
         } else if (data.length <= 10) {
-            return manyCountries;
+            buildListMarkup(data, manyCountries);
         }
     })
         .catch(Error => {
@@ -39,11 +40,11 @@ function buildListMarkup(countries, template) {
     const markup = countries.markup(count => template(count)).join();
     refs.countriesList.insertAdjacentHTML('afterbegin',markup)
 }
-function manyCountries(countries) {
-    const countriesHtml = countries
-        .markup((country) => `<h4> ${country.name} </h4>`).join('');
-    refs.countriesList.insertAdjacentHTML('afterbegin', countriesHtml);
-}
+// function manyCountries(countries) {
+//     const countriesHtml = countries
+//         .markup((country) => `<h4> ${country.name} </h4>`).join('');
+//     refs.countriesList.insertAdjacentHTML('afterbegin', countriesHtml);
+// }
 
 function clearCountriesList() {
     refs.countriesList.innerHTML = '';
