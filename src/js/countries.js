@@ -2,6 +2,7 @@ import fetchCountries from './fetch-Countries';
 import refs from './refs';
 import countriesTpl from '../templates/templateCountry.hbs';
 import manyCountries from '../templates/templateMoreCountry.hbs';
+
 import { alert } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 
@@ -43,11 +44,7 @@ function buildListMarkup(countries, template) {
     const markup = countries.map(count => template(count)).join();
     refs.countriesList.insertAdjacentHTML('afterbegin', markup)
 }
-// function manyCountries(countries) {
-//     const countriesHtml = countries
-//         .markup((country) => `<h4> ${country.name} </h4>`).join('');
-//     refs.countriesList.insertAdjacentHTML('afterbegin', countriesHtml);
-// }
+
 
 function clearCountriesList() {
     refs.countriesList.innerHTML = '';
