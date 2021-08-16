@@ -3,6 +3,7 @@ import refs from './refs';
 import countriesTpl from '../templates/templateCountry.hbs';
 import manyCountries from '../templates/templateMoreCountry.hbs';
 import { alert } from '@pnotify/core';
+import '@pnotify/core/dist/BrightTheme.css';
 
 
 const debounce = require('lodash.debounce');
