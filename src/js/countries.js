@@ -5,11 +5,11 @@ import manyCountries from '../templates/templateMoreCountry.hbs';
 import { alert } from '@pnotify/core';
 
 
-const debounce = require('lodash.debounce');  
+const debounce = require('lodash.debounce');
 
 
 
-refs.input.addEventListener('input',  debounce(handleInput, 500));
+refs.input.addEventListener('input', debounce(handleInput, 500));
 
 
 function handleInput(e) {
@@ -33,12 +33,12 @@ function handleInput(e) {
                 text: "You must enter query parameters!"
             });
             console.log(Error)
-    })
+        })
 
 }
 function buildListMarkup(countries, template) {
-    const markup = countries.markup(count => template(count)).join();
-    refs.countriesList.insertAdjacentHTML('afterbegin',markup)
+    const markup = countries.map(count => template(count)).join();
+    refs.countriesList.insertAdjacentHTML('afterbegin', markup)
 }
 // function manyCountries(countries) {
 //     const countriesHtml = countries
