@@ -26,6 +26,11 @@ function handleInput(e) {
                 alert({
                     text: " Too many matches found. Please enter a more specific query!"
                 });
+            }
+            else if (data.status === 404) {
+                alert({
+                    text: "No country has been found. Please enter a more specific query!"
+                });
             } else if (data.length === 1) {
                 buildListMarkup(data, countriesTpl);
             } else if (data.length <= 10) {
